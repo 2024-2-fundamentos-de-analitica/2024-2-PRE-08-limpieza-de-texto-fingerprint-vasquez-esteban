@@ -4,7 +4,7 @@ import os
 
 import pandas as pd  # type: ignore
 
-from _solution import clean_data
+from homework import clean_data
 
 
 def test_homework():
@@ -29,12 +29,12 @@ def test_homework():
 
     #
     # Retorna error si la carpeta output/ no existe
-    if not os.path.exists("files/output.txt"):
-        raise FileNotFoundError("File 'files/output.txt' not found")
+    if not os.path.exists("files/output/output.txt"):
+        raise FileNotFoundError("File 'files/output/output.txt' not found")
 
     #
     # Lee el contenido del archivo output.txt
-    dataframe = pd.read_csv("files/output.txt")
+    dataframe = pd.read_csv("files/output/output.txt")
     count = dataframe.groupby("text").size()
 
     assert count.loc["AD-HOC QUERIES"] == 6
